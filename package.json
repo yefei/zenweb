@@ -15,6 +15,13 @@
     "koa"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yefei/jiango-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yefei/jiango-node/issues"
+  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0"
