@@ -3,13 +3,12 @@ simple web framework
 
 ## Quick start
 
-```
-npm i jiango
-mkdir app
+```bash
+$ npm i jiango
 ```
 
 app/index.js
-```
+```js
 'use strict';
 
 const { router } = require('jiango');
@@ -23,7 +22,7 @@ router.get('/', ctx => {
 ```
 
 main.js
-```
+```js
 'use strict';
 
 const { start } = require('jiango');
@@ -31,6 +30,8 @@ const { start } = require('jiango');
 start();
 ```
 
-```
-node main.js
+```bash
+$ node main.js
+Router: HEAD,GET /
+Server on 7001. 2 ms
 ```
