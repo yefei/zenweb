@@ -73,11 +73,11 @@ function start(port = 7001) {
   const startTime = Date.now();
   load();
   // 打印出已经加载的路由
-  router.stack.forEach(i => console.log('Router:', i.methods.join(','), i.path));
+  router.stack.forEach(i => console.log('Router: [%s] %s', i.methods.join(','), i.path));
   app.use(router.routes());
   app.use(router.allowedMethods());
   app.listen(port, () => {
-    console.log(`Server on ${port}.`, Date.now() - startTime, 'ms');
+    console.log(`Server on %s. %oms`, port, Date.now() - startTime);
   });
 }
 
