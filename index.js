@@ -54,11 +54,14 @@ app.on('error', (err, ctx) => {
 
 /**
  * 统一返回错误信息
- * @param {string} message 错误消息
- * @param {number} [code=1] 错误代码
- * @param {any} [data] 附加数据
+ * @param {string|object} msg 错误消息 | 消息对象
+ * @param {string} msg.message 错误消息
+ * @param {number} [msg.code] 错误代码
+ * @param {*} [msg.data] 附加数据
+ * @throws {HttpError}
  */
-function fail(message, code = 1, data) {
+function fail(msg) {
+  const { code, message, data } = typeof msg === 'object' ? msg : { message: msg };
   const err = createError(422, message);
   err[FAIL_BODY] = {
     code,
@@ -68,20 +71,21 @@ function fail(message, code = 1, data) {
   throw err;
 }
 
+const originContextOnError = app.context.onerror;
+
 /**
  * 自定义错误处理
  * @param {Error} err 
  */
 app.context.onerror = function(err) {
   if (null == err) return;
-  if (!err.expose) {
-    this.app.emit('error', err, this);
-  }
-  this.status = err.status || 500;
+  if (!err[FAIL_BODY]) return originContextOnError.call(this, err);
+  // respond
+  const msg = JSON.stringify(err[FAIL_BODY]);
   this.type = 'json';
-  this.body = JSON.stringify(err[FAIL_BODY] || this.body || { code: 1, message: err.message });
-  this.length = Buffer.byteLength(this.body);
-  this.res.end(this.body);
+  this.status = err.status || err.statusCode || 422;
+  this.length = Buffer.byteLength(msg);
+  this.res.end(msg);
 };
 
 // POST 内容解析
