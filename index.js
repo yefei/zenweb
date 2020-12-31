@@ -15,8 +15,35 @@ const FAIL_BODY = Symbol('FAIL_BODY');
 const app = new Koa();
 const router = new Router();
 
+const isDev = app.env === 'development';
+
 // logger
-const logger = pino();
+let logdest;
+if (!isDev) {
+  const logdir = path.join(process.cwd(), 'log');
+  if (!fs.existsSync(logdir)) {
+    fs.mkdirSync(logdir);
+  }
+  fs.writeFileSync(path.join(logdir, 'app.pid'), process.pid);
+  logdest = pino.destination(path.join(logdir, 'app.log'));
+  process.on('SIGHUP', () => {
+    console.log('reopen log file');
+    logdest.reopen();
+  });
+}
+
+const logger = pino(logdest);
+
+process.on('uncaughtException', pino.final(logger, (err, finalLogger) => {
+  finalLogger.error(err, 'uncaughtException');
+  process.exit(1);
+}));
+
+process.on('unhandledRejection', pino.final(logger, (err, finalLogger) => {
+  finalLogger.error(err, 'unhandledRejection');
+  process.exit(1);
+}));
+
 app.use(function(ctx, next) {
   ctx.log = logger.child({
     method: ctx.method,

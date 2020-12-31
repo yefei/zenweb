@@ -20,3 +20,8 @@ router.get('/error', ctx => {
   fail('error demo');
   console.log('后续代码不会执行');
 });
+
+router.get('/log', ctx => {
+  ctx.log.info('Hello');
+  ctx.body = 'hello';
+});
