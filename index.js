@@ -15,17 +15,10 @@ const FAIL_BODY = Symbol('FAIL_BODY');
 const app = new Koa();
 const router = new Router();
 
-const isDev = app.env === 'development';
-
 // logger
 let logdest;
-if (!isDev) {
-  const logdir = path.join(process.cwd(), 'log');
-  if (!fs.existsSync(logdir)) {
-    fs.mkdirSync(logdir);
-  }
-  fs.writeFileSync(path.join(logdir, 'app.pid'), process.pid);
-  logdest = pino.destination(path.join(logdir, 'app.log'));
+if (process.env.JIANGO_LOG_FILE) {
+  logdest = pino.destination(process.env.JIANGO_LOG_FILE);
   process.on('SIGHUP', () => {
     console.log('reopen log file');
     logdest.reopen();
