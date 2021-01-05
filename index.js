@@ -37,7 +37,7 @@ process.on('unhandledRejection', pino.final(logger, (err, finalLogger) => {
   process.exit(1);
 }));
 
-app.use(function(ctx, next) {
+function ctxLog(ctx, next) {
   ctx.log = logger.child({
     method: ctx.method,
     url: ctx.url,
@@ -45,7 +45,9 @@ app.use(function(ctx, next) {
     ip: ctx.ip,
   });
   return next();
-});
+}
+
+app.use(ctxLog);
 
 // Sentry
 if (process.env.SENTRY_DSN) {
