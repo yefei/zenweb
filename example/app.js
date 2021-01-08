@@ -10,5 +10,3 @@ const app = new App({
 });
 
 module.exports = app;
-
-app.start();
