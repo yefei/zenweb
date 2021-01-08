@@ -2,11 +2,7 @@
 
 process.env.DEBUG = '*';
 
-const App = require('..');
+const { start, setFailOptions } = require('..');
 
-const app = new App({
-  failCode: 500,
-  failHttpCode: 200,
-});
-
-module.exports = app;
+setFailOptions({ failCode: 500, failHttpCode: 200 });
+start();

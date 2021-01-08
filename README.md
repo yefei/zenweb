@@ -11,22 +11,17 @@ app.js
 ```js
 'use strict';
 
-const App = require('jiango');
-
-const app = new App();
-
-module.exports = app;
-
-app.start();
+const { start, setFailOptions } = require('jiango');
+start();
 ```
 
 app/index.js
 ```js
 'use strict';
 
-const app = require('../app');
+const { router } = require('jiango');
 
-app.router.get('/', ctx => {
+router.get('/', ctx => {
   ctx.body = {
     hello: 'world',
     time: Date.now(),
