@@ -7,13 +7,26 @@ simple web framework
 $ npm i jiango
 ```
 
+app.js
+```js
+'use strict';
+
+const App = require('jiango');
+
+const app = new App();
+
+module.exports = app;
+
+app.start();
+```
+
 app/index.js
 ```js
 'use strict';
 
-const { router } = require('jiango');
+const app = require('../app');
 
-router.get('/', ctx => {
+app.router.get('/', ctx => {
   ctx.body = {
     hello: 'world',
     time: Date.now(),
@@ -21,17 +34,8 @@ router.get('/', ctx => {
 });
 ```
 
-main.js
-```js
-'use strict';
-
-const { start } = require('jiango');
-
-start();
-```
-
 ```bash
-$ node main.js
+$ node app
 Router: HEAD,GET /
 Server on 7001. 2 ms
 ```

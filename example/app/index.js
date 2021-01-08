@@ -1,27 +1,27 @@
 'use strict';
 
-const { router, fail } = require('../..');
+const app = require('../app');
 
-router.get('/', ctx => {
+app.router.get('/', ctx => {
   ctx.body = {
     hello: 'world',
     time: Date.now(),
   };
 });
 
-router.get('/name/:name', ctx => {
+app.router.get('/name/:name', ctx => {
   ctx.body = {
     name: ctx.params.name,
   };
 });
 
-router.get('/error', ctx => {
+app.router.get('/error', ctx => {
   // 错误输出终止执行
-  fail('error demo');
+  ctx.fail('error demo');
   console.log('后续代码不会执行');
 });
 
-router.get('/log', ctx => {
+app.router.get('/log', ctx => {
   ctx.log.info('Hello');
   ctx.body = 'hello';
 });
