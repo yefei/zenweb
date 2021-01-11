@@ -16,6 +16,7 @@
   ],
   "files": [
     "lib",
+    "mod",
     "index.js"
   ],
   "license": "MIT",
@@ -27,12 +28,13 @@
     "url": "https://github.com/yefei/jiango-node/issues"
   },
   "devDependencies": {
+    "@sentry/node": "^5.29.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0"
   },
   "dependencies": {
     "@koa/router": "^10.0.0",
-    "@sentry/node": "^5.29.2",
+    "debug": "^4.3.1",
     "globby": "^11.0.1",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",

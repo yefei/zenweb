@@ -1,6 +1,7 @@
 'use strict';
 
-const { router, fail } = require('../..');
+const app = require('../app');
+const router = app.router;
 
 router.get('/', ctx => {
   ctx.body = {
@@ -17,7 +18,7 @@ router.get('/name/:name', ctx => {
 
 router.get('/error', ctx => {
   // 错误输出终止执行
-  fail('error demo');
+  ctx.fail('error demo');
   console.log('后续代码不会执行');
 });
 

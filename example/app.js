@@ -2,7 +2,12 @@
 
 process.env.DEBUG = '*';
 
-const { start, setFailOptions } = require('..');
+const app = module.exports = require('..')({
+  fail: {
+    defaultCode: 500,
+    defaultHttpCode: 200,
+  }
+});
 
-setFailOptions({ failCode: 500, failHttpCode: 200 });
-start();
+// app.setup('../mod/sentry', { dsn: 'xxxx' });
+app.start();
