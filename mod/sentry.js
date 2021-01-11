@@ -13,9 +13,6 @@ const Sentry = require('@sentry/node');
  * @param {Sentry.NodeOptions} options
  */
 function sentry(core, options) {
-  /**
-   * @type {import('koa')}
-   */
   const app = core.koa;
   debug('options: %o', options);
   Sentry.init(options);
