@@ -19,7 +19,6 @@
   ],
   "files": [
     "lib",
-    "mod",
     "index.js"
   ],
   "license": "MIT",
