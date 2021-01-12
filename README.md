@@ -15,6 +15,8 @@ const app = module.exports = require('..')();
 app.start();
 ```
 
+代码直接写到 app/ 目录下，项目启动时自动加载 app/ 目录下的所有文件。
+
 app/index.js
 ```js
 'use strict';
@@ -32,7 +34,8 @@ router.get('/', ctx => {
 
 ```bash
 $ node app
-Server on 7001. 2 ms
+boot time: 2 ms
+server on: 7001
 ```
 
 ## 环境变量
