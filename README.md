@@ -11,7 +11,12 @@ app.js
 ```js
 'use strict';
 
-const app = module.exports = require('..')();
+const app = module.exports = require('jiango')();
+
+// 安装其他模块
+// $ npm i @jiango/sentry
+// app.setup('@jiango/sentry', { dsn: 'xxxxx' });
+
 app.start();
 ```
 
