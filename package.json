@@ -30,7 +30,6 @@
     "url": "https://github.com/yefei/jiango-node/issues"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0"
   },
   "dependencies": {
