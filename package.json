@@ -1,6 +1,6 @@
 {
   "name": "jiango",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "simple web framework",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   ],
   "files": [
     "lib",
+    "index.d.ts",
     "index.js"
   ],
   "license": "MIT",
