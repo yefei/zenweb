@@ -37,6 +37,7 @@ declare class Core {
   router: KoaRouter;
   loaded: string[];
   log: pino.Logger;
+  defineContextCacheProperty(prop: string | number | symbol, get: function(Koa.Context)): void;
   check(mod: string): Core;
   setup(mod: string | setupCallback, options?: any, name?: string): Core;
   boot(): Promise<void>;
