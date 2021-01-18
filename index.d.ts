@@ -5,7 +5,7 @@ import * as pino from "pino";
 
 export = core;
 
-function core(options: CoreOptions): Core;
+declare function core(options: CoreOptions): Core;
 
 interface ApiFailDetail {
   message?: string;
@@ -14,7 +14,7 @@ interface ApiFailDetail {
   data?: any;
 }
 
-class FailError extends Error {
+declare class FailError extends Error {
   constructor(message?: string, code?: number, data?: any, httpCode?: number);
 }
 
@@ -29,27 +29,27 @@ interface CoreOptions {
   api?: ApiOptions;
 }
 
-type modsetup = function(core: Core, options?: any): Promise;
+type setupCallback = (core: Core, options?: any) => Promise<void>;
 
-class Core {
+declare class Core {
   constructor(options: CoreOptions);
   koa: Koa;
   router: KoaRouter;
   loaded: string[];
   log: pino.Logger;
   check(mod: string): Core;
-  setup(mod: string | modsetup, options?: any, name?: string): Core;
-  boot(): Promise;
+  setup(mod: string | setupCallback, options?: any, name?: string): Core;
+  boot(): Promise<void>;
   listen(port?: number): void;
   start(port?: number): void;
 }
 
 declare module 'koa' {
-  declare class Application extends Koa {
+  class Application extends Koa {
     log: pino.Logger;
   }
 
-  declare interface BaseContext {
+  interface BaseContext {
     // Log
     startTime: number;
     log: pino.Logger;
