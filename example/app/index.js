@@ -22,6 +22,11 @@ router.get('/error', ctx => {
   console.log('后续代码不会执行');
 });
 
+router.get('/success', ctx => {
+  // 使用 success 统一包装返回格式
+  ctx.success('ok');
+});
+
 router.get('/log', ctx => {
   ctx.log.info('Hello');
   ctx.body = 'hello';
