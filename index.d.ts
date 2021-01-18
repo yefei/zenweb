@@ -36,6 +36,7 @@ class Core {
   koa: Koa;
   router: KoaRouter;
   loaded: string[];
+  log: pino.Logger;
   check(mod: string): Core;
   setup(mod: string | modsetup, options?: any, name?: string): Core;
   boot(): Promise;

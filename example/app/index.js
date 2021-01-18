@@ -28,6 +28,7 @@ router.get('/success', ctx => {
 });
 
 router.get('/log', ctx => {
-  ctx.log.info('Hello');
+  app.log.info('App log');
+  ctx.log.info('Context log');
   ctx.body = 'hello';
 });
