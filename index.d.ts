@@ -37,7 +37,7 @@ declare class Core {
   router: KoaRouter;
   loaded: string[];
   log: pino.Logger;
-  defineContextCacheProperty(prop: string | number | symbol, get: function(Koa.Context)): void;
+  defineContextCacheProperty(prop: string | number | symbol, get: (ctx: Koa.Context) => any): void;
   check(mod: string): Core;
   setup(mod: string | setupCallback, options?: any, name?: string): Core;
   boot(): Promise<void>;
@@ -50,6 +50,9 @@ declare module 'koa' {
     log: pino.Logger;
   }
 
+  interface IService {
+  }
+
   interface BaseContext {
     // Log
     startTime: number;
@@ -58,5 +61,8 @@ declare module 'koa' {
     // API
     fail(msg: string | ApiFailDetail): never;
     success(data: any): any;
+
+    // Service
+    service: IService;
   }
 }

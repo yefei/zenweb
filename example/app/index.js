@@ -32,3 +32,8 @@ router.get('/log', ctx => {
   ctx.log.info('Context log');
   ctx.body = 'hello';
 });
+
+router.get('/service', ctx => {
+  const { helloService } = ctx.service;
+  ctx.body = helloService.say();
+});
