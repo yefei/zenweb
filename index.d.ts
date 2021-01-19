@@ -41,7 +41,7 @@ export declare class Core {
 }
 
 export declare class Service {
-  constructor(public ctx: Koa.BaseContext);
+  constructor(public ctx: Koa.Context);
 }
 
 export declare function create(options: CoreOptions): Core;
@@ -61,6 +61,6 @@ declare module 'koa' {
     success(data: any): any;
 
     // Service
-    service<T>(cls: { new (ctx: Koa.BaseContext): T }): T;
+    service<T>(cls: { new (ctx: Koa.Context): T }): T;
   }
 }
