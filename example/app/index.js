@@ -47,3 +47,14 @@ router.get('/service', ctx => {
     3: helloService3.say(),
   };
 });
+
+function sleep(ms) {
+  return new Promise((res) => {
+    setTimeout(res, ms);
+  });
+}
+
+router.get('/x-process-time', async ctx => {
+  await sleep(1000);
+  ctx.body = 'ok';
+});
