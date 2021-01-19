@@ -33,7 +33,17 @@ router.get('/log', ctx => {
   ctx.body = 'hello';
 });
 
+const HelloService = require('./service');
+const HelloService222 = HelloService;
+const HelloService333 = require('./service3');
+
 router.get('/service', ctx => {
-  const { helloService } = ctx.service;
-  ctx.body = helloService.say();
+  const helloService = ctx.service(HelloService);
+  const helloService2 = ctx.service(HelloService222);
+  const helloService3 = ctx.service(HelloService333);
+  ctx.body = {
+    1: helloService.say(),
+    2: helloService2.say(),
+    3: helloService3.say(),
+  };
 });

@@ -2,7 +2,7 @@
 
 process.env.DEBUG = '*';
 
-const app = module.exports = require('..')({
+const app = module.exports = require('..').create({
   api: {
     failCode: 500,
     failHttpCode: 200,
@@ -12,5 +12,4 @@ const app = module.exports = require('..')({
   }
 });
 
-// app.setup('../mod/sentry', { dsn: 'xxxx' });
 app.start();

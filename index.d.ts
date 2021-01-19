@@ -3,18 +3,14 @@ import * as Koa from "koa";
 import * as KoaRouter from "koa-router";
 import * as pino from "pino";
 
-export = core;
-
-declare function core(options: CoreOptions): Core;
-
-interface ApiFailDetail {
+export interface ApiFailDetail {
   message?: string;
   code?: number;
   httpCode?: number;
   data?: any;
 }
 
-declare class FailError extends Error {
+export declare class ApiFail extends Error {
   constructor(message?: string, code?: number, data?: any, httpCode?: number);
 }
 
@@ -22,16 +18,16 @@ interface ApiOptions {
   failCode?: number;
   failHttpCode?: number;
   success?(data: any): any;
-  fail?(err: FailError): any;
+  fail?(err: ApiFail): any;
 }
 
 interface CoreOptions {
   api?: ApiOptions;
 }
 
-type setupCallback = (core: Core, options?: any) => Promise<void>;
+export type setupCallback = (core: Core, options?: any) => Promise<void>;
 
-declare class Core {
+export declare class Core {
   constructor(options: CoreOptions);
   koa: Koa;
   router: KoaRouter;
@@ -45,12 +41,15 @@ declare class Core {
   start(port?: number): void;
 }
 
+export declare class Service {
+  constructor(readonly ctx: Koa.BaseContext);
+}
+
+export declare function create(options: CoreOptions): Core
+
 declare module 'koa' {
   class Application extends Koa {
     log: pino.Logger;
-  }
-
-  interface IService {
   }
 
   interface BaseContext {
@@ -63,6 +62,6 @@ declare module 'koa' {
     success(data: any): any;
 
     // Service
-    service: IService;
+    service<T>(cls: { new (ctx: Koa.BaseContext): T }): T;
   }
 }
