@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import * as Koa from "koa";
 import * as KoaRouter from "koa-router";
 import * as pino from "pino";
@@ -42,13 +41,13 @@ export declare class Core {
 }
 
 export declare class Service {
-  constructor(readonly ctx: Koa.BaseContext);
+  constructor(ctx: Koa.BaseContext);
 }
 
-export declare function create(options: CoreOptions): Core
+export declare function create(options: CoreOptions): Core;
 
 declare module 'koa' {
-  class Application extends Koa {
+  class Application {
     log: pino.Logger;
   }
 
