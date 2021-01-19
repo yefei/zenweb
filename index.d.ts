@@ -41,7 +41,7 @@ export declare class Core {
 }
 
 export declare class Service {
-  constructor(ctx: Koa.BaseContext);
+  constructor(public ctx: Koa.BaseContext);
 }
 
 export declare function create(options: CoreOptions): Core;
