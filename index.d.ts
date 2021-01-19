@@ -26,7 +26,9 @@ interface CoreOptions {
 
 export type setupCallback = (core: Core, options?: any) => Promise<void>;
 
-export declare class Core {
+interface ICore {}
+
+export declare class Core implements ICore {
   constructor(options: CoreOptions);
   koa: Koa;
   router: KoaRouter;
