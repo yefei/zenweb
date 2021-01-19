@@ -41,16 +41,13 @@ export declare class Core {
 }
 
 export declare class Service {
-  constructor(public ctx: Koa.Context);
+  protected ctx: Koa.Context;
+  constructor(ctx: Koa.Context);
 }
 
 export declare function create(options: CoreOptions): Core;
 
 declare module 'koa' {
-  class Application {
-    log: pino.Logger;
-  }
-
   interface BaseContext {
     // Log
     startTime: number;
