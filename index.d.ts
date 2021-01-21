@@ -52,6 +52,7 @@ type typeCastPickFields = (string | { [key: string]: string | ((value: any, defa
 declare interface Helper {
   query(...fields: typeCastPickFields): { [key: string]: any };
   body(...fields: typeCastPickFields): { [key: string]: any };
+  params(...fields: typeCastPickFields): { [key: string]: any };
 }
 
 declare module 'koa' {
