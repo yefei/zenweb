@@ -47,6 +47,13 @@ export declare class Service {
 
 export declare function create(options: CoreOptions): Core;
 
+type typeCastPickFields = (string | { [key: string]: string | ((value: any, defaultValue: any) => any) })[];
+
+declare interface Helper {
+  query(...fields: typeCastPickFields): { [key: string]: any };
+  body(...fields: typeCastPickFields): { [key: string]: any };
+}
+
 declare module 'koa' {
   interface BaseContext {
     // Log
@@ -59,5 +66,8 @@ declare module 'koa' {
 
     // Service
     service<T>(cls: { new (ctx: Koa.Context): T }): T;
+
+    // Helper
+    helper: Helper;
   }
 }

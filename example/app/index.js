@@ -58,3 +58,8 @@ router.get('/x-process-time', async ctx => {
   await sleep(1000);
   ctx.body = 'ok';
 });
+
+
+router.get('/typecast', ctx => {
+  ctx.body = ctx.helper.query('kw', { count: 'int:100', is: 'bool' });
+});
