@@ -57,6 +57,9 @@ declare interface Helper {
 
 declare module 'koa' {
   interface BaseContext {
+    // Core
+    core: Core;
+
     // Log
     startTime: number;
     log: pino.Logger;
