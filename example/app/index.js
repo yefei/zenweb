@@ -61,5 +61,5 @@ router.get('/x-process-time', async ctx => {
 
 
 router.get('/typecast', ctx => {
-  ctx.body = ctx.helper.query('kw', { count: 'int:100', is: 'bool' });
+  ctx.body = ctx.helper.query('kw', { count: 'int:100', is: 'bool', list:'int[]' });
 });
