@@ -17,11 +17,6 @@
     "framework",
     "koa"
   ],
-  "files": [
-    "lib",
-    "index.d.ts",
-    "index.js"
-  ],
   "license": "MIT",
   "repository": {
     "type": "git",
