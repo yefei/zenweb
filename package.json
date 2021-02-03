@@ -1,6 +1,6 @@
 {
   "name": "jiango",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "simple web framework",
   "main": "index.js",
   "scripts": {
