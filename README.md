@@ -1,21 +1,21 @@
-# jiango-node
-simple web framework
+# ZenWeb
+Koa based modular web framework
 
 ## Quick start
 
 ```bash
-$ npm i jiango
+$ npm i zenweb
 ```
 
 app.js
 ```js
 'use strict';
 
-const app = module.exports = require('jiango')();
+const app = module.exports = require('zenweb')();
 
 // 安装其他模块
-// $ npm i @jiango/sentry
-// app.setup('@jiango/sentry', { dsn: 'xxxxx' });
+// $ npm i @zenweb/sentry
+// app.setup('@zenweb/sentry', { dsn: 'xxxxx' });
 
 app.start();
 ```
