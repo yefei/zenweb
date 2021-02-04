@@ -1,5 +1,5 @@
 # ZenWeb
-Koa based modular web framework
+Modular lightweight web framework based on Koa
 
 ## Quick start
 
@@ -11,30 +11,24 @@ app.js
 ```js
 'use strict';
 
-const app = module.exports = require('zenweb')();
+const app = module.exports = require('zenweb').create();
 
-// 安装其他模块
-// $ npm i @zenweb/sentry
-// app.setup('@zenweb/sentry', { dsn: 'xxxxx' });
+// add module
+// $ npm i @zenweb/sentry @zenweb/cors @zenweb/validation
+app.setup('@zenweb/sentry', { dsn: 'xxxxx' });
+app.setup('@zenweb/cors', { origin: '*' });
+app.setup('@zenweb/validation');
+
+app.router.get('/hello', ctx => {
+  ctx.success('Hello');
+});
+
+app.router.get('/error', ctx => {
+  ctx.fail('error info');
+  console.log('Will not output');
+});
 
 app.start();
-```
-
-代码直接写到 app/ 目录下，项目启动时自动加载 app/ 目录下的所有文件。
-
-app/index.js
-```js
-'use strict';
-
-const app = require('../app');
-const router = app.router;
-
-router.get('/', ctx => {
-  ctx.body = {
-    hello: 'world',
-    time: Date.now(),
-  };
-});
 ```
 
 ```bash
@@ -43,14 +37,7 @@ boot time: 2 ms
 server on: 7001
 ```
 
-## 环境变量
-
-| 环境变量 | 说明 | 默认 | 例子 |
-| ------- | --- | --- | --- |
-| PORT | 服务端口 | 7001 | 3000 |
-| LOG_FILE | 日志输出文件 | 无。控制台输出 | /tmp/app1.log |
-
-## 功能说明
+## doc
 
 ### ctx.helper
 #### query(), body(), params()
