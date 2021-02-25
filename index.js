@@ -2,7 +2,7 @@
 
 const Core = require('./lib/core');
 const { ApiFail } = require('./lib/api');
-const { Service } = require('./lib/service');
+const { Service, registerService } = require('./lib/service');
 
 /**
  * @param {object} [options] 配置项
@@ -21,5 +21,6 @@ module.exports = {
   Core,
   ApiFail,
   Service,
+  registerService,
   create,
 };

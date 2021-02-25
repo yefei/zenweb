@@ -33,18 +33,16 @@ router.get('/log', ctx => {
   ctx.body = 'hello';
 });
 
-const HelloService = require('./service');
-const HelloService222 = HelloService;
-const HelloService333 = require('./service3');
-
 router.get('/service', ctx => {
-  const helloService = ctx.service(HelloService);
-  const helloService2 = ctx.service(HelloService222);
-  const helloService3 = ctx.service(HelloService333);
+  console.log( 'helloService' in ctx.service ); // 这时未初始化所以不存在
+  const helloService = ctx.service.helloService; // 获取时会被初始化
+  const helloService2 = ctx.service.helloService; // 再次获取使用之前已经初始化的
+  const { helloService: s3 } = ctx.service; // 可以用解构
+  console.log( 'helloService' in ctx.service );
   ctx.body = {
     1: helloService.say(),
     2: helloService2.say(),
-    3: helloService3.say(),
+    3: s3.say(),
   };
 });
 

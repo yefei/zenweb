@@ -45,6 +45,9 @@ export declare class Service {
   constructor(ctx: Koa.Context);
 }
 
+type serviceClass = <T extends Service> () => { new(ctx: Context): T };
+export declare function registerService(cls: serviceClass, name?: string): Map<string, serviceClass>;
+
 export declare function create(options: CoreOptions): Core;
 
 type typeCastPickFields = (string | { [key: string]: string | ((value: any, defaultValue: any) => any) })[];
@@ -53,6 +56,9 @@ declare interface Helper {
   query(...fields: typeCastPickFields): { [key: string]: any };
   body(...fields: typeCastPickFields): { [key: string]: any };
   params(...fields: typeCastPickFields): { [key: string]: any };
+}
+
+export declare interface Services {
 }
 
 declare module 'koa' {
@@ -69,7 +75,7 @@ declare module 'koa' {
     success(data: any): any;
 
     // Service
-    service<T>(cls: { new (ctx: Koa.Context): T }): T;
+    service: Services;
 
     // Helper
     helper: Helper;
