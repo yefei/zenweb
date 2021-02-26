@@ -1,6 +1,7 @@
 import * as Koa from "koa";
 import * as KoaRouter from "koa-router";
 import * as pino from "pino";
+import * as bodyParser from "koa-bodyparser";
 
 export interface ApiFailDetail {
   message?: string;
@@ -22,6 +23,7 @@ interface ApiOptions {
 
 interface CoreOptions {
   api?: ApiOptions;
+  bodyParser?: bodyParser.Options;
 }
 
 export type setupCallback = (core: Core, options?: any) => Promise<void>;
