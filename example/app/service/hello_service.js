@@ -1,7 +1,6 @@
 'use strict';
 
-const { Service } = require('../..');
-const app = require('../app');
+const { Service } = require('../../..');
 
 class HelloService extends Service {
   constructor(ctx) {
@@ -15,4 +14,4 @@ class HelloService extends Service {
   }
 }
 
-app.service.register(HelloService);
+module.exports = HelloService;

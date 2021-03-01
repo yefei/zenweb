@@ -17,7 +17,7 @@ function create(options) {
   core.setup('@zenweb/api', options.api);
   core.setup('@zenweb/helper');
   core.setup('@zenweb/body', options.body);
-  core.setup('@zenweb/service');
+  core.setup('@zenweb/service', options.service);
   return core;
 }
 
