@@ -29,11 +29,13 @@
     "eslint": "^7.16.0"
   },
   "dependencies": {
-    "@koa/router": "^10.0.0",
-    "debug": "^4.3.1",
-    "globby": "^11.0.1",
-    "koa": "^2.13.0",
-    "koa-bodyparser": "^4.3.0",
-    "pino": "^6.8.0"
+    "@zenweb/api": "^1.0.1",
+    "@zenweb/body": "^1.0.1",
+    "@zenweb/core": "^1.1.0",
+    "@zenweb/helper": "^1.0.1",
+    "@zenweb/log": "^1.0.0",
+    "@zenweb/meta": "^1.0.1",
+    "@zenweb/router": "^1.0.0",
+    "@zenweb/service": "^1.0.1"
   }
 }

@@ -1,26 +1,29 @@
 'use strict';
 
-const Core = require('./lib/core');
-const { ApiFail } = require('./lib/api');
-const { Service, registerService } = require('./lib/service');
+const { Core } = require('@zenweb/core');
+const { ApiFail } = require('@zenweb/api');
+const { Service } = require('@zenweb/service');
 
 /**
  * @param {object} [options] 配置项
- * @param {object} [options.api] API配置
- * @param {number} [options.api.failCode=undefined] 默认失败代码
- * @param {number} [options.api.failHttpCode=422] 默认失败HTTP状态码
- * @param {function(object):object} [options.api.success] 成功结果包装
- * @param {function(ApiFail):object} [options.api.fail] 失败结果包装
  * @returns {Core}
  */
 function create(options) {
-  return new Core(options);
+  options = Object.assign({}, options);
+  const core = new Core();
+  core.setup('@zenweb/meta');
+  core.setup('@zenweb/log');
+  core.setup('@zenweb/router');
+  core.setup('@zenweb/api', options.api);
+  core.setup('@zenweb/helper');
+  core.setup('@zenweb/body', options.body);
+  core.setup('@zenweb/service');
+  return core;
 }
 
 module.exports = {
   Core,
   ApiFail,
   Service,
-  registerService,
   create,
 };
