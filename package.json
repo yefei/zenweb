@@ -36,6 +36,6 @@
     "@zenweb/log": "^1.0.0",
     "@zenweb/meta": "^1.0.1",
     "@zenweb/router": "^1.1.2",
-    "@zenweb/service": "^1.1.0"
+    "@zenweb/service": "^1.2.0"
   }
 }
