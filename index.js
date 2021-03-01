@@ -9,11 +9,11 @@ const { Service } = require('@zenweb/service');
  * @returns {Core}
  */
 function create(options) {
-  options = Object.assign({}, options);
+  options = options || {};
   const core = new Core();
   core.setup('@zenweb/meta');
   core.setup('@zenweb/log');
-  core.setup('@zenweb/router');
+  core.setup('@zenweb/router', options.router);
   core.setup('@zenweb/api', options.api);
   core.setup('@zenweb/helper');
   core.setup('@zenweb/body', options.body);
