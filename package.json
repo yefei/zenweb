@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Modular lightweight web framework based on Koa",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "@zenweb/helper": "^1.0.2",
     "@zenweb/log": "^1.0.0",
     "@zenweb/meta": "^1.0.1",
-    "@zenweb/router": "^1.1.1",
+    "@zenweb/router": "^1.1.2",
     "@zenweb/service": "^1.1.0"
   }
 }
