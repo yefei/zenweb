@@ -7,7 +7,7 @@ Modular lightweight web framework based on Koa
 $ npm i zenweb
 ```
 
-app.js
+app/index.js
 ```js
 'use strict';
 
@@ -15,24 +15,60 @@ const app = module.exports = require('zenweb').create();
 
 // add module
 // $ npm i @zenweb/sentry @zenweb/cors @zenweb/validation
-app.setup('@zenweb/sentry', { dsn: 'xxxxx' });
+// app.setup('@zenweb/sentry', { dsn: 'xxxxx' });
 app.setup('@zenweb/cors', { origin: '*' });
 app.setup('@zenweb/validation');
+app.start();
+```
+
+app/controller/hello.js
+```js
+'use strict';
+
+const app = require('..');
+const router = app.router;
+
+app.router.get('/', ctx => {
+  ctx.success('Hello');
+});
 
 app.router.get('/hello', ctx => {
-  ctx.success('Hello');
+  ctx.success({
+    say1: ctx.service.helloService.say(),
+    say2: ctx.service.helloService.say(),
+    say3: ctx.service.helloService.say(),
+  });
 });
 
 app.router.get('/error', ctx => {
   ctx.fail('error info');
   console.log('Will not output');
 });
+```
 
-app.start();
+app/service/hello_service.js
+```js
+'use strict';
+
+const { Service } = require('zenweb');
+
+class HelloService extends Service {
+  constructor(ctx) {
+    super(ctx);
+    this.i = 0;
+  }
+
+  say() {
+    this.i++;
+    return `Hello: ${this.ctx.path}, ${this.i}`;
+  }
+}
+
+module.exports = HelloService;
 ```
 
 ```bash
-$ node app
+$ DEBUG=* node app
 boot time: 2 ms
 server on: 7001
 ```
