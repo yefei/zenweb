@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Modular lightweight web framework based on Koa",
   "main": "index.js",
   "scripts": {
@@ -26,14 +26,15 @@
     "url": "https://github.com/yefei/zenweb/issues"
   },
   "devDependencies": {
-    "eslint": "^7.16.0"
+    "eslint": "^7.16.0",
+    "pino-pretty": "^4.7.1"
   },
   "dependencies": {
     "@zenweb/api": "^1.0.1",
     "@zenweb/body": "^1.0.1",
     "@zenweb/core": "^1.1.0",
     "@zenweb/helper": "^1.0.2",
-    "@zenweb/log": "^1.0.0",
+    "@zenweb/log": "^1.1.0",
     "@zenweb/meta": "^1.0.1",
     "@zenweb/router": "^1.1.2",
     "@zenweb/service": "^1.3.0"
