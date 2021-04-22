@@ -32,7 +32,7 @@
   "dependencies": {
     "@zenweb/api": "^1.0.1",
     "@zenweb/body": "^1.0.1",
-    "@zenweb/core": "^1.1.0",
+    "@zenweb/core": "^1.2.1",
     "@zenweb/helper": "^1.0.2",
     "@zenweb/log": "^1.1.0",
     "@zenweb/meta": "^1.0.1",

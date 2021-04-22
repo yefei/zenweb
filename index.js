@@ -10,7 +10,7 @@ const { Service } = require('@zenweb/service');
  */
 function create(options) {
   options = options || {};
-  const core = new Core();
+  const core = new Core(options.core);
   core.setup('@zenweb/meta');
   core.setup('@zenweb/log');
   core.setup('@zenweb/router', options.router);
