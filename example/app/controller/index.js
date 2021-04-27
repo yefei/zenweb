@@ -66,3 +66,12 @@ router.get('/typecast', ctx => {
     trimList:'trim[]',
   });
 });
+
+router.post('/post', ctx => {
+  ctx.body = ctx.request.body;
+});
+
+router.post('/file', ctx => {
+  console.log('file:', ctx.request.files);
+  ctx.body = ctx.request.body;
+});

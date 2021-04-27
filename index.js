@@ -16,7 +16,12 @@ function create(options) {
   core.setup('@zenweb/router', options.router);
   core.setup('@zenweb/api', options.api);
   core.setup('@zenweb/helper');
-  core.setup('@zenweb/body', options.body);
+  core.setup('@zenweb/body', Object.assign({
+    onError(error, ctx) {
+      ctx.log.warn('request body error: %s', error);
+      ctx.fail('request body error: ' + error.message);
+    },
+  }, options.body));
   core.setup('@zenweb/service', options.service);
   return core;
 }

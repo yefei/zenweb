@@ -9,7 +9,7 @@ import { CoreOptions } from '@zenweb/core';
 import { ServiceOptions } from '@zenweb/service';
 import { ApiOptions } from '@zenweb/api';
 import { Core } from '@zenweb/core';
-import { Options as BodyOptions } from '@zenweb/body';
+import { IKoaBodyOptions as BodyOptions } from '@zenweb/body';
 import { RouterOptions } from '@zenweb/router';
 
 interface CreateOptions {
