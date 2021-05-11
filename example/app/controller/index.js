@@ -67,6 +67,16 @@ router.get('/typecast', ctx => {
   });
 });
 
+router.post('/typecast', ctx => {
+  ctx.body = ctx.helper.body('kw', {
+    count: 'int',
+    is: 'bool',
+    list:'int[]',
+    trim:'trim',
+    trimList:'trim[]',
+  });
+});
+
 router.post('/post', ctx => {
   ctx.body = ctx.request.body;
 });
