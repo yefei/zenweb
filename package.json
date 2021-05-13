@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Modular lightweight web framework based on Koa",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,13 @@
     "url": "https://github.com/yefei/zenweb/issues"
   },
   "devDependencies": {
+    "@zenweb/cors": "^1.1.0",
+    "@zenweb/metric": "^1.2.0",
+    "@zenweb/mysql": "^1.2.0",
+    "@zenweb/schedule": "^1.0.0",
+    "@zenweb/sentry": "^1.2.1",
+    "@zenweb/validation": "^1.2.0",
+    "@zenweb/view": "^1.1.0",
     "eslint": "^7.16.0",
     "pino-pretty": "^4.7.1"
   },

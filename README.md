@@ -11,13 +11,14 @@ app/index.js
 ```js
 'use strict';
 
-const app = module.exports = require('zenweb').create();
+const app = module.exports = require('zenweb').create({
+  // add optional module
+  // $ npm i @zenweb/sentry @zenweb/cors @zenweb/validation
+  sentry: { dsn: 'xxxxx' },
+  cors: { origin: '*' },
+  validation: {},
+});
 
-// add module
-// $ npm i @zenweb/sentry @zenweb/cors @zenweb/validation
-// app.setup('@zenweb/sentry', { dsn: 'xxxxx' });
-app.setup('@zenweb/cors', { origin: '*' });
-app.setup('@zenweb/validation');
 app.start();
 ```
 

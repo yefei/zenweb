@@ -4,6 +4,17 @@ const { Core } = require('@zenweb/core');
 const { ApiFail } = require('@zenweb/api');
 const { Service } = require('@zenweb/service');
 
+// 可选模块
+const OPTIONAL_MODULES = {
+  sentry: '@zenweb/sentry',
+  metric: '@zenweb/metric',
+  cors: '@zenweb/cors',
+  validation: '@zenweb/validation',
+  mysql: '@zenweb/mysql',
+  view: '@zenweb/view',
+  schedule: '@zenweb/schedule',
+};
+
 /**
  * @param {object} [options] 配置项
  * @returns {Core}
@@ -23,6 +34,11 @@ function create(options) {
     },
   }, options.body));
   core.setup('@zenweb/service', options.service);
+  for (const [name, mod] of Object.entries(OPTIONAL_MODULES)) {
+    if (options[name]) {
+      core.setup(mod, options[name]);
+    }
+  }
   return core;
 }
 

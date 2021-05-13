@@ -11,6 +11,13 @@ import { ApiOptions } from '@zenweb/api';
 import { Core } from '@zenweb/core';
 import { IKoaBodyOptions as BodyOptions } from '@zenweb/body';
 import { RouterOptions } from '@zenweb/router';
+import { SentryOptions } from '@zenweb/sentry';
+import { MetricOptions } from '@zenweb/metric';
+import { CorsOptions } from '@zenweb/cors';
+import { ValidationOptions } from '@zenweb/validation';
+import { MySQLOptions } from '@zenweb/mysql';
+import { ViewOptions } from '@zenweb/view';
+import { ScheduleOptions } from '@zenweb/schedule';
 
 interface CreateOptions {
   core?: CoreOptions;
@@ -18,6 +25,14 @@ interface CreateOptions {
   body?: BodyOptions;
   router?: RouterOptions;
   service?: ServiceOptions;
+  // optional
+  sentry?: SentryOptions;
+  metric?: MetricOptions;
+  cors?: CorsOptions;
+  validation?: ValidationOptions;
+  mysql?: MySQLOptions;
+  view?: ViewOptions;
+  schedule?: ScheduleOptions;
 }
 
 export declare function create(options?: CreateOptions): Core;
