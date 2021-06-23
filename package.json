@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "Modular lightweight web framework based on Koa",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "pino-pretty": "^4.7.1"
   },
   "dependencies": {
-    "@zenweb/api": "^1.1.0",
+    "@zenweb/api": "^1.2.0",
     "@zenweb/body": "^1.1.0",
     "@zenweb/core": "^1.2.1",
     "@zenweb/helper": "^1.0.2",
