@@ -18,6 +18,8 @@ import { ValidationOptions } from '@zenweb/validation';
 import { MySQLOptions } from '@zenweb/mysql';
 import { ViewOptions } from '@zenweb/view';
 import { ScheduleOptions } from '@zenweb/schedule';
+import { MessageCodeOption } from '@zenweb/messagecode';
+import { FormOption } from '@zenweb/form';
 
 interface CreateOptions {
   core?: CoreOptions;
@@ -33,6 +35,8 @@ interface CreateOptions {
   mysql?: MySQLOptions;
   view?: ViewOptions;
   schedule?: ScheduleOptions;
+  messageCode?: MessageCodeOption;
+  form?: FormOption;
 }
 
 export declare function create(options?: CreateOptions): Core;

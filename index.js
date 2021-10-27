@@ -13,6 +13,8 @@ const OPTIONAL_MODULES = {
   mysql: '@zenweb/mysql',
   view: '@zenweb/view',
   schedule: '@zenweb/schedule',
+  messageCode: '@zenweb/messagecode',
+  form: '@zenweb/form',
 };
 
 /**
