@@ -13,7 +13,6 @@ const OPTIONAL_MODULES = {
   mysql: '@zenweb/mysql',
   view: '@zenweb/view',
   schedule: '@zenweb/schedule',
-  messageCode: '@zenweb/messagecode',
   form: '@zenweb/form',
 };
 
@@ -28,6 +27,7 @@ function create(options) {
   core.setup('@zenweb/log');
   core.setup('@zenweb/router', options.router);
   core.setup('@zenweb/api', options.api);
+  core.setup('@zenweb/messagecode', options.messageCode);
   core.setup('@zenweb/helper');
   core.setup('@zenweb/body', Object.assign({
     onError(error, ctx) {
