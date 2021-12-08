@@ -1,9 +1,6 @@
-'use strict';
+import { create } from 'zenweb';
 
-process.env.NODE_ENV = 'development';
-process.env.DEBUG = '*';
-
-const app = module.exports = require('..').create({
+export const app = create({
   body: {
     multipart: true,
   },

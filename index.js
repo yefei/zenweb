@@ -1,8 +1,7 @@
-'use strict';
-
-const { Core } = require('@zenweb/core');
-const { ApiFail } = require('@zenweb/api');
-const { Service } = require('@zenweb/service');
+import { Core } from '@zenweb/core';
+export { Router } from '@zenweb/router';
+export { ApiFail } from '@zenweb/api';
+export { Service } from '@zenweb/service';
 
 // 可选模块
 const OPTIONAL_MODULES = {
@@ -20,7 +19,7 @@ const OPTIONAL_MODULES = {
  * @param {object} [options] 配置项
  * @returns {Core}
  */
-function create(options) {
+export function create(options) {
   options = options || {};
   const core = new Core(options.core);
   core.setup('@zenweb/meta');
@@ -43,10 +42,3 @@ function create(options) {
   }
   return core;
 }
-
-module.exports = {
-  Core,
-  ApiFail,
-  Service,
-  create,
-};

@@ -2,9 +2,6 @@ import '@zenweb/log';
 import '@zenweb/router';
 import '@zenweb/helper';
 import '@zenweb/service';
-export { Core } from '@zenweb/core';
-export { ApiFail, ApiFailDetail } from '@zenweb/api';
-export { Service } from '@zenweb/service';
 import { CoreOptions } from '@zenweb/core';
 import { ServiceOptions } from '@zenweb/service';
 import { ApiOptions } from '@zenweb/api';
@@ -20,6 +17,9 @@ import { ViewOptions } from '@zenweb/view';
 import { ScheduleOptions } from '@zenweb/schedule';
 import { MessageCodeOption } from '@zenweb/messagecode';
 import { FormOption } from '@zenweb/form';
+export { Router } from '@zenweb/router';
+export { ApiFail } from '@zenweb/api';
+export { Service } from '@zenweb/service';
 
 interface CreateOptions {
   core?: CoreOptions;

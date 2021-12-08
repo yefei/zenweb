@@ -1,8 +1,6 @@
-'use strict';
+import { Service } from 'zenweb';
 
-const { Service } = require('../../..');
-
-class HelloService extends Service {
+export default class HelloService extends Service {
   constructor(ctx) {
     super(ctx);
     this.i = 0;
@@ -13,5 +11,3 @@ class HelloService extends Service {
     return `Hello: ${this.ctx.path}, ${this.i}`;
   }
 }
-
-module.exports = HelloService;

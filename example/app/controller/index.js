@@ -1,7 +1,5 @@
-'use strict';
-
-const app = require('../../app');
-const router = app.router;
+import { Router } from 'zenweb';
+export const router = Router();
 
 router.get('/', ctx => {
   ctx.body = {
@@ -28,7 +26,6 @@ router.get('/success', ctx => {
 });
 
 router.get('/log', ctx => {
-  app.log.info('App log');
   ctx.log.info('Context log');
   ctx.body = 'hello';
 });
@@ -56,24 +53,13 @@ router.get('/x-process-time', async ctx => {
   ctx.body = 'ok';
 });
 
-
-router.get('/typecast', ctx => {
-  ctx.body = ctx.helper.query('kw', {
-    count: 'int',
-    is: 'bool',
-    list:'int[]',
-    trim:'trim',
-    trimList:'trim[]',
-  });
-});
-
 router.post('/typecast', ctx => {
   ctx.body = ctx.helper.body('kw', {
     count: 'int',
     is: 'bool',
-    list:'int[]',
-    trim:'trim',
-    trimList:'trim[]',
+    list: 'int[]',
+    trim: 'trim',
+    trimList: 'trim[]',
   });
 });
 

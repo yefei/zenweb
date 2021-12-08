@@ -3,15 +3,29 @@ Modular lightweight web framework based on Koa
 
 ## Quick start
 
+package.json
+```json
+{
+  "name": "app",
+  "type": "module",
+  "private": true,
+  "exports": "app/**",
+  "scripts": {
+    "dev": "cross-env DEBUG=* NODE_ENV=development nodemon app",
+    "start": "node app"
+  }
+}
+```
+
 ```bash
-$ npm i zenweb
+$ npm i zenweb cross-env nodemon
 ```
 
 app/index.js
 ```js
-'use strict';
+import { create } from 'zenweb';
 
-const app = module.exports = require('zenweb').create({
+const app = create({
   // add optional module
   // $ npm i @zenweb/sentry @zenweb/cors @zenweb/validation
   sentry: { dsn: 'xxxxx' },
@@ -24,16 +38,14 @@ app.start();
 
 app/controller/hello.js
 ```js
-'use strict';
+import { Router } from 'zenweb';
+export const router = Router();
 
-const app = require('..');
-const router = app.router;
-
-app.router.get('/', ctx => {
+router.get('/', ctx => {
   ctx.success('Hello');
 });
 
-app.router.get('/hello', ctx => {
+router.get('/hello', ctx => {
   ctx.success({
     say1: ctx.service.helloService.say(),
     say2: ctx.service.helloService.say(),
@@ -41,7 +53,7 @@ app.router.get('/hello', ctx => {
   });
 });
 
-app.router.get('/error', ctx => {
+router.get('/error', ctx => {
   ctx.fail('error info');
   console.log('Will not output');
 });
@@ -49,11 +61,9 @@ app.router.get('/error', ctx => {
 
 app/service/hello_service.js
 ```js
-'use strict';
+import { Service } from 'zenweb';
 
-const { Service } = require('zenweb');
-
-class HelloService extends Service {
+export default class HelloService extends Service {
   constructor(ctx) {
     super(ctx);
     this.i = 0;
@@ -64,49 +74,10 @@ class HelloService extends Service {
     return `Hello: ${this.ctx.path}, ${this.i}`;
   }
 }
-
-module.exports = HelloService;
 ```
 
 ```bash
-$ DEBUG=* node app
+$ npm run dev
 boot time: 2 ms
 server on: 7001
-```
-
-## doc
-
-### ctx.helper
-#### query(), body(), params()
-```js
-ctx.body = ctx.helper.query('kw', {
-  count: 'int',
-  is: 'bool',
-  list:'int[]',
-  trim:'trim',
-  trimList:'trim[]',
-});
-```
-```bash
-curl --location --request GET '127.0.0.1:7001/typecast?kw=%20111%20&count=222&is=y&list=1,2,3&trim=%20%20aaaa%20&trimList=asd,sdd,%20%20ddd%20,d,,1'
-```
-```json
-{
-  "kw": " 111 ",
-  "count": 222,
-  "is": true,
-  "list": [
-    1,
-    2,
-    3
-  ],
-  "trim": "aaaa",
-  "trimList": [
-    "asd",
-    "sdd",
-    "ddd",
-    "d",
-    "1"
-  ]
-}
 ```
