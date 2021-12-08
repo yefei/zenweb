@@ -9,16 +9,22 @@ package.json
   "name": "app",
   "type": "module",
   "private": true,
-  "exports": "app/**",
+  "main": "app/index.js",
   "scripts": {
-    "dev": "cross-env DEBUG=* NODE_ENV=development nodemon app",
+    "dev": "cross-env DEBUG=*,-zenweb:metric NODE_ENV=development nodemon app",
     "start": "node app"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/typings/**"
+    ]
   }
 }
 ```
 
 ```bash
-$ npm i zenweb cross-env nodemon
+$ npm i zenweb
+$ npm i cross-env nodemon -D
 ```
 
 app/index.js
