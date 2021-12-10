@@ -1,5 +1,5 @@
 import { Router } from 'zenweb';
-export const router = Router({ prefix: '/user' });
+export const router = new Router({ prefix: '/user' });
 
 // 路由级别的中间件, 只会在当前文件有效
 router.use((ctx, next) => {
