@@ -13,6 +13,7 @@ const OPTIONAL_MODULES = {
   view: '@zenweb/view',
   schedule: '@zenweb/schedule',
   form: '@zenweb/form',
+  orm: '@zenweb/orm',
 };
 
 /**
