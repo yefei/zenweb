@@ -1,12 +1,7 @@
-import '@zenweb/log';
-import '@zenweb/router';
-import '@zenweb/helper';
-import '@zenweb/service';
 import { CoreOptions } from '@zenweb/core';
 import { ServiceOptions } from '@zenweb/service';
-import { ApiOptions } from '@zenweb/api';
-import { Core } from '@zenweb/core';
-import { IKoaBodyOptions as BodyOptions } from '@zenweb/body';
+import { ApiOption } from '@zenweb/api';
+import { BodyOption } from '@zenweb/body';
 import { RouterOptions } from '@zenweb/router';
 import { SentryOptions } from '@zenweb/sentry';
 import { MetricOptions } from '@zenweb/metric';
@@ -17,14 +12,13 @@ import { ViewOptions } from '@zenweb/view';
 import { ScheduleOptions } from '@zenweb/schedule';
 import { MessageCodeOption } from '@zenweb/messagecode';
 import { FormOption } from '@zenweb/form';
-export { Router } from '@zenweb/router';
-export { ApiFail } from '@zenweb/api';
-export { Service } from '@zenweb/service';
 
-interface CreateOptions {
+export interface CreateOptions {
+  [key: string]: any;
+
   core?: CoreOptions;
-  api?: ApiOptions;
-  body?: BodyOptions;
+  api?: ApiOption;
+  body?: BodyOption;
   router?: RouterOptions;
   service?: ServiceOptions;
   // optional
@@ -38,5 +32,3 @@ interface CreateOptions {
   messageCode?: MessageCodeOption;
   form?: FormOption;
 }
-
-export declare function create(options?: CreateOptions): Core;

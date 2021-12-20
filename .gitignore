@@ -12,3 +12,4 @@ run/
 *.un~
 .npmrc
 example/typings/
+dist/
