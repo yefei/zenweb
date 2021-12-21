@@ -1,11 +1,11 @@
 import { CoreOptions } from '@zenweb/core';
-import { ServiceOptions } from '@zenweb/service';
+import { ServiceOption } from '@zenweb/service';
 import { ApiOption } from '@zenweb/api';
 import { BodyOption } from '@zenweb/body';
-import { RouterOptions } from '@zenweb/router';
+import { RouterOption } from '@zenweb/router';
 import { SentryOptions } from '@zenweb/sentry';
 import { MetricOptions } from '@zenweb/metric';
-import { CorsOptions } from '@zenweb/cors';
+import { CorsOption } from '@zenweb/cors';
 import { ValidationOptions } from '@zenweb/validation';
 import { MySQLOptions } from '@zenweb/mysql';
 import { ViewOptions } from '@zenweb/view';
@@ -19,12 +19,12 @@ export interface CreateOptions {
   core?: CoreOptions;
   api?: ApiOption;
   body?: BodyOption;
-  router?: RouterOptions;
-  service?: ServiceOptions;
+  router?: RouterOption;
+  service?: ServiceOption;
   // optional
   sentry?: SentryOptions;
   metric?: MetricOptions;
-  cors?: CorsOptions;
+  cors?: CorsOption;
   validation?: ValidationOptions;
   mysql?: MySQLOptions;
   view?: ViewOptions;
