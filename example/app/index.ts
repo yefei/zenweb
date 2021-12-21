@@ -1,9 +1,7 @@
-import { create } from 'zenweb';
+import '../typings/service';
+import { create } from '../../src/index';
 
 export const app = create({
-  body: {
-    multipart: true,
-  },
   api: {
     failCode: 500,
     failStatus: 200,

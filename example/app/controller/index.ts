@@ -1,4 +1,4 @@
-import { Router } from 'zenweb';
+import { Router } from '../../../src/index';
 export const router = new Router();
 
 router.get('/', ctx => {
@@ -42,7 +42,7 @@ router.get('/service', ctx => {
   };
 });
 
-function sleep(ms) {
+function sleep(ms: number) {
   return new Promise((res) => {
     setTimeout(res, ms);
   });

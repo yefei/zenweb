@@ -1,10 +1,7 @@
-import { Service } from 'zenweb';
+import { Service } from '../../../src/index';
 
 export default class HelloService extends Service {
-  constructor(ctx) {
-    super(ctx);
-    this.i = 0;
-  }
+  private i = 0;
 
   say() {
     this.i++;

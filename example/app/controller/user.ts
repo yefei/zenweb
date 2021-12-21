@@ -1,4 +1,4 @@
-import { Router } from 'zenweb';
+import { Router } from '../../../src/index';
 export const router = new Router({ prefix: '/user' });
 
 // 路由级别的中间件, 只会在当前文件有效

@@ -1,4 +1,12 @@
-import { BodyOption } from '@zenweb/body';
+import '@zenweb/meta';
+import '@zenweb/log';
+import '@zenweb/router';
+import '@zenweb/api';
+import '@zenweb/helper';
+import '@zenweb/service';
+import '@zenweb/messagecode';
+import '@zenweb/body';
+
 import { Core } from '@zenweb/core';
 import { CreateOptions } from './types';
 export { Router } from '@zenweb/router';
@@ -32,15 +40,7 @@ export function create(options: CreateOptions) {
   core.setup('@zenweb/helper');
   core.setup('@zenweb/service', options.service);
   core.setup('@zenweb/messagecode', options.messageCode);
-
-  const defaultBodyOption: BodyOption = {
-    onError(error, ctx) {
-      ctx.log.warn('request body error: %s', error);
-      ctx.fail('request body error: ' + error.message);
-    },
-  };
-  core.setup('@zenweb/body', Object.assign(defaultBodyOption, options.body));
-
+  core.setup('@zenweb/body', options.body);
   // 安装可选项
   for (const [key, name] of Object.entries(OPTIONAL_MODULES)) {
     if (key in options) {
