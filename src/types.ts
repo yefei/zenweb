@@ -7,7 +7,7 @@ import { SentryOptions } from '@zenweb/sentry';
 import { MetricOptions } from '@zenweb/metric';
 import { CorsOption } from '@zenweb/cors';
 import { ValidationOptions } from '@zenweb/validation';
-import { MySQLOptions } from '@zenweb/mysql';
+import { MySQLOption } from '@zenweb/mysql';
 import { ViewOptions } from '@zenweb/view';
 import { ScheduleOptions } from '@zenweb/schedule';
 import { MessageCodeOption } from '@zenweb/messagecode';
@@ -26,7 +26,7 @@ export interface CreateOptions {
   metric?: MetricOptions;
   cors?: CorsOption;
   validation?: ValidationOptions;
-  mysql?: MySQLOptions;
+  mysql?: MySQLOption;
   view?: ViewOptions;
   schedule?: ScheduleOptions;
   messageCode?: MessageCodeOption;

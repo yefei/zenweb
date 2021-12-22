@@ -15,7 +15,7 @@ export { Service } from '@zenweb/service';
 export * from './types';
 
 // 可选模块
-export const OPTIONAL_MODULES = {
+const OPTIONAL_MODULES = {
   sentry: '@zenweb/sentry',
   metric: '@zenweb/metric',
   cors: '@zenweb/cors',
