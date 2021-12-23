@@ -39,7 +39,7 @@
     "@zenweb/messagecode": "^2.3.0",
     "@zenweb/meta": "^2.3.0",
     "@zenweb/router": "^2.3.0",
-    "@zenweb/service": "^2.3.2"
+    "@zenweb/service": "^2.3.5"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
