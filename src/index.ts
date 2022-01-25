@@ -8,6 +8,7 @@ import api from '@zenweb/api';
 import helper from '@zenweb/helper';
 import { Core } from '@zenweb/core';
 import { CreateOptions } from './types';
+export { SetupFunction } from '@zenweb/core';
 export { Router } from '@zenweb/router';
 export { ApiFail } from '@zenweb/api';
 export { Service } from '@zenweb/service';
