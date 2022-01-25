@@ -6,13 +6,17 @@ import body from '@zenweb/body';
 import service from '@zenweb/service';
 import api from '@zenweb/api';
 import helper from '@zenweb/helper';
-import { Core } from '@zenweb/core';
+import { Core, SetupFunction } from '@zenweb/core';
 import { CreateOptions } from './types';
-export { SetupFunction } from '@zenweb/core';
 export { Router } from '@zenweb/router';
 export { ApiFail } from '@zenweb/api';
 export { Service } from '@zenweb/service';
 export * from './types';
+
+export {
+  Core,
+  SetupFunction,
+}
 
 /**
  * @param options 模块配置项
