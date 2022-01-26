@@ -21,7 +21,7 @@ export {
 /**
  * @param options 模块配置项
  */
-export function create(options: CreateOptions) {
+export function create(options?: CreateOptions) {
   options = options || {};
   const core = new Core(options.core);
   if (options.meta !== false) core.setup(meta(options.meta));
