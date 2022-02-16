@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "Modular lightweight web framework based on Koa",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -39,7 +39,7 @@
     "@zenweb/messagecode": "^2.3.0",
     "@zenweb/meta": "^2.3.0",
     "@zenweb/router": "^2.3.0",
-    "@zenweb/service": "^2.4.2"
+    "@zenweb/service": "^2.4.5"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
