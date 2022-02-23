@@ -37,7 +37,7 @@
     "@zenweb/helper": "^2.5.0",
     "@zenweb/log": "^2.3.0",
     "@zenweb/messagecode": "^2.3.0",
-    "@zenweb/meta": "^2.3.1",
+    "@zenweb/meta": "^2.3.2",
     "@zenweb/router": "^2.3.0",
     "@zenweb/service": "^2.4.8"
   },
