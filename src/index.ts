@@ -36,6 +36,6 @@ export function create(options?: CreateOptions) {
   if (options.body !== false) core.setup(body(options.body));
   if (options.service !== false) core.setup(service(options.service));
   if (options.api !== false) core.setup(api(options.api));
-  if (options.helper !== false) core.setup(helper());
+  if (options.helper !== false) core.setup(helper(options.helper));
   return core;
 }

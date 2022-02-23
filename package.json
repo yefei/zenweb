@@ -31,7 +31,7 @@
     "url": "https://github.com/yefei/zenweb/issues"
   },
   "dependencies": {
-    "@zenweb/api": "^2.3.3",
+    "@zenweb/api": "^2.3.4",
     "@zenweb/body": "^2.3.1",
     "@zenweb/core": "^2.4.1",
     "@zenweb/helper": "^2.6.0",
