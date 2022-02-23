@@ -8,6 +8,13 @@ export const app = create({
     success(data) {
       return { path: this.path, code: 200, data };
     },
+  },
+  router: {
+    discoverPaths: ['./src/controller'],
+  },
+  service: {
+    paths: ['./src/service'],
+    patterns: '**/*.ts',
   }
 });
 
