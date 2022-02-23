@@ -87,26 +87,28 @@ boot time: 2 ms
 server on: 7001
 ```
 
+项目模块序号用于错误代码分类
+
 ### 内置模块
-- [meta](https://www.npmjs.com/package/@zenweb/meta)
-- [log](https://www.npmjs.com/package/@zenweb/log)
-- [router](https://www.npmjs.com/package/@zenweb/router)
-- [messagecode](https://www.npmjs.com/package/@zenweb/messagecode)
-- [body](https://www.npmjs.com/package/@zenweb/body)
-- [service](https://www.npmjs.com/package/@zenweb/service)
-- [api](https://www.npmjs.com/package/@zenweb/api)
-- [helper](https://www.npmjs.com/package/@zenweb/helper)
+1. [meta](https://www.npmjs.com/package/@zenweb/meta)
+2. [log](https://www.npmjs.com/package/@zenweb/log)
+3. [router](https://www.npmjs.com/package/@zenweb/router)
+4. [messagecode](https://www.npmjs.com/package/@zenweb/messagecode)
+5. [body](https://www.npmjs.com/package/@zenweb/body)
+6. [service](https://www.npmjs.com/package/@zenweb/service)
+7. [api](https://www.npmjs.com/package/@zenweb/api)
+8. [helper](https://www.npmjs.com/package/@zenweb/helper)
 
 内置模块默认开启，可以通过设置配置项为 **false** 关闭
 
 
 ### 可选模块
-- [cors](https://www.npmjs.com/package/@zenweb/cors)
-- [sentry](https://www.npmjs.com/package/@zenweb/sentry)
-- [metric](https://www.npmjs.com/package/@zenweb/metric)
-- [validation](https://www.npmjs.com/package/@zenweb/validation)
-- [mysql](https://www.npmjs.com/package/@zenweb/mysql)
-- [orm](https://www.npmjs.com/package/@zenweb/orm)
-- [view](https://www.npmjs.com/package/@zenweb/view)
-- [schedule](https://www.npmjs.com/package/@zenweb/schedule)
-- [form](https://www.npmjs.com/package/@zenweb/form)
+9. [cors](https://www.npmjs.com/package/@zenweb/cors)
+10. [sentry](https://www.npmjs.com/package/@zenweb/sentry)
+11. [metric](https://www.npmjs.com/package/@zenweb/metric)
+12. [validation](https://www.npmjs.com/package/@zenweb/validation)
+13. [mysql](https://www.npmjs.com/package/@zenweb/mysql)
+14. [orm](https://www.npmjs.com/package/@zenweb/orm)
+15. [view](https://www.npmjs.com/package/@zenweb/view)
+16. [schedule](https://www.npmjs.com/package/@zenweb/schedule)
+17. [form](https://www.npmjs.com/package/@zenweb/form)
