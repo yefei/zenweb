@@ -54,12 +54,13 @@ router.get('/x-process-time', async ctx => {
 });
 
 router.post('/typecast', ctx => {
-  ctx.body = ctx.helper.body('kw', {
+  ctx.body = ctx.helper.body({
+    kw: 'trim',
     count: 'int',
     is: 'bool',
-    list: 'int[]',
+    list: { type: 'int', splitter: ',', required: true },
     trim: 'trim',
-    trimList: 'trim[]',
+    trimList: { type: 'trim', splitter: ',' },
   });
 });
 
