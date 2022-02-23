@@ -1,4 +1,4 @@
-import '../typings/service';
+import './service/_typing';
 import { create } from '../../src/index';
 
 export const app = create({
