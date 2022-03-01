@@ -58,9 +58,9 @@ router.post('/typecast', ctx => {
     kw: 'trim',
     count: 'int',
     is: 'bool',
-    list: { type: 'int', splitter: ',', required: true },
+    list: '!int[]',
     trim: 'trim',
-    trimList: { type: 'trim', splitter: ',' },
+    trimList:'trim[]',
   });
 });
 
