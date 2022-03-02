@@ -72,3 +72,8 @@ router.post('/file', ctx => {
   console.log('file:', ctx.request.files);
   ctx.body = ctx.request.body;
 });
+
+router.get('/page', ctx => {
+  const page = ctx.helper.page({ allowOrder: ['aaa'] });
+  ctx.success({ page });
+});

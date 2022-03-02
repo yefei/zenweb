@@ -5,7 +5,7 @@ export const app = create({
   api: {
     failCode: 500,
     failStatus: 200,
-    success(data) {
+    success(ctx, data) {
       return { path: this.path, code: 200, data };
     },
   },
