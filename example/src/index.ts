@@ -1,4 +1,3 @@
-import './service/_typing';
 import { create } from '../../src/index';
 
 export const app = create({
@@ -6,16 +5,12 @@ export const app = create({
     failCode: 500,
     failStatus: 200,
     success(ctx, data) {
-      return { path: this.path, code: 200, data };
+      return { path: ctx.path, code: 200, data };
     },
   },
-  router: {
+  controller: {
     discoverPaths: ['./src/controller'],
   },
-  service: {
-    paths: ['./src/service'],
-    patterns: '**/*.ts',
-  }
 });
 
 app.start();

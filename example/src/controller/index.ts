@@ -1,79 +1,90 @@
-import { Router } from '../../../src/index';
-export const router = new Router();
+import { Context, inject, mapping } from '../../../src/index';
+import { HelloService } from '../service/hello_service';
 
-router.get('/', ctx => {
-  ctx.body = {
-    hello: 'world',
-    time: Date.now(),
-  };
-});
+export class Index {
+  @inject
+  ctx: Context;
 
-router.get('/name/:name', ctx => {
-  ctx.body = {
-    name: ctx.params.name,
-  };
-});
+  @mapping('GET', '/')
+  index() {
+    this.ctx.body = {
+      hello: 'world',
+      time: Date.now(),
+    };
+  }
 
-router.get('/error', ctx => {
-  // 错误输出终止执行
-  ctx.fail('error demo');
-  console.log('后续代码不会执行');
-});
+  @mapping('GET', '/name/:name')
+  name() {
+    this.ctx.body = {
+      name: this.ctx.params.name,
+    };
+  }
 
-router.get('/success', ctx => {
-  // 使用 success 统一包装返回格式
-  ctx.success('ok');
-});
+  @mapping()
+  error() {
+    // 错误输出终止执行
+    this.ctx.fail('error demo');
+    console.log('后续代码不会执行');
+  }
 
-router.get('/log', ctx => {
-  ctx.log.info('Context log');
-  ctx.body = 'hello';
-});
+  @mapping('GET', '/success')
+  success() {
+    // 使用 success 统一包装返回格式
+    this.ctx.success('ok');
+  }
 
-router.get('/service', ctx => {
-  console.log( 'helloService' in ctx.service ); // 可以用 in 判断 service 是否已注册
-  const helloService = ctx.service.helloService; // 获取时会被初始化
-  const helloService2 = ctx.service.helloService; // 再次获取使用之前已经初始化的
-  const { helloService: s3 } = ctx.service; // 可以用解构
-  ctx.body = {
-    1: helloService.say(),
-    2: helloService2.say(),
-    3: s3.say(),
-  };
-});
+  @mapping()
+  log() {
+    this.ctx.log.info('Context log');
+    this.ctx.body = 'hello';
+  }
+
+  @inject
+  helloService: HelloService;
+
+  @mapping('GET', '/service')
+  service() {
+    this.ctx.body = this.helloService.say();
+  }
+
+  @mapping('GET', '/x-process-time')
+  async processTime() {
+    await sleep(1000);
+    this.ctx.body = 'ok';
+  }
+
+  @mapping('POST')
+  typecast() {
+    this.ctx.body = this.ctx.helper.body({
+      kw: 'trim',
+      count: 'int',
+      is: 'bool',
+      list: '!int[]',
+      trim: 'trim',
+      trimList:'trim[]',
+    });
+  }
+
+  @mapping('POST')
+  post() {
+    this.ctx.body = this.ctx.request.body;
+  }
+
+  @mapping('POST')
+  file() {
+    console.log('file:', this.ctx.request.files);
+    this.ctx.body = this.ctx.request.body;
+  }
+
+  @mapping()
+  page() {
+    const page = this.ctx.helper.page({ allowOrder: ['aaa'] });
+    this.ctx.success({ page });
+  }
+}
 
 function sleep(ms: number) {
   return new Promise((res) => {
     setTimeout(res, ms);
   });
 }
-
-router.get('/x-process-time', async ctx => {
-  await sleep(1000);
-  ctx.body = 'ok';
-});
-
-router.post('/typecast', ctx => {
-  ctx.body = ctx.helper.body({
-    kw: 'trim',
-    count: 'int',
-    is: 'bool',
-    list: '!int[]',
-    trim: 'trim',
-    trimList:'trim[]',
-  });
-});
-
-router.post('/post', ctx => {
-  ctx.body = ctx.request.body;
-});
-
-router.post('/file', ctx => {
-  console.log('file:', ctx.request.files);
-  ctx.body = ctx.request.body;
-});
-
-router.get('/page', ctx => {
-  const page = ctx.helper.page({ allowOrder: ['aaa'] });
-  ctx.success({ page });
-});

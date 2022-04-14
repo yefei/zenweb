@@ -1,6 +1,9 @@
-import { Service } from '../../../src/index';
+import { Context, inject } from "@zenweb/inject";
 
-export default class HelloService extends Service {
+export class HelloService {
+  @inject
+  ctx: Context;
+
   private i = 0;
 
   say() {
