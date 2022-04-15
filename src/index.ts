@@ -17,12 +17,12 @@ import { CreateOptions } from './types';
 export { init, inject, singleton, Context } from '@zenweb/inject';
 export { Router } from '@zenweb/router';
 export { ApiFail } from '@zenweb/api';
-export * from '@zenweb/controller';
-export * from './types';
+export { Controller, controller, mapping } from '@zenweb/controller';
 
 export {
   Core,
   SetupFunction,
+  CreateOptions,
 }
 
 /**

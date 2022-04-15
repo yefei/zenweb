@@ -5,7 +5,7 @@ export class Index {
   @inject
   ctx: Context;
 
-  @mapping('GET', '/')
+  @mapping({ path: '/' })
   index() {
     this.ctx.body = {
       hello: 'world',
@@ -13,8 +13,8 @@ export class Index {
     };
   }
 
-  @mapping('GET', '/name/:name')
-  name() {
+  @mapping({ path: '/name/:name' })
+  name(ctx: Context) {
     this.ctx.body = {
       name: this.ctx.params.name,
     };
@@ -27,7 +27,7 @@ export class Index {
     console.log('后续代码不会执行');
   }
 
-  @mapping('GET', '/success')
+  @mapping()
   success() {
     // 使用 success 统一包装返回格式
     this.ctx.success('ok');
@@ -42,18 +42,18 @@ export class Index {
   @inject
   helloService: HelloService;
 
-  @mapping('GET', '/service')
+  @mapping()
   service() {
     this.ctx.body = this.helloService.say();
   }
 
-  @mapping('GET', '/x-process-time')
+  @mapping({ path: '/x-process-time' })
   async processTime() {
     await sleep(1000);
     this.ctx.body = 'ok';
   }
 
-  @mapping('POST')
+  @mapping({ method: 'POST' })
   typecast() {
     this.ctx.body = this.ctx.helper.body({
       kw: 'trim',
@@ -65,12 +65,12 @@ export class Index {
     });
   }
 
-  @mapping('POST')
+  @mapping({ method: 'POST' })
   post() {
     this.ctx.body = this.ctx.request.body;
   }
 
-  @mapping('POST')
+  @mapping({ method: 'POST' })
   file() {
     console.log('file:', this.ctx.request.files);
     this.ctx.body = this.ctx.request.body;
