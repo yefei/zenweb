@@ -5,7 +5,7 @@ export class Index {
   @inject
   ctx: Context;
 
-  @mapping({ path: '/' })
+  @mapping()
   index() {
     this.ctx.body = {
       hello: 'world',
