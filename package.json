@@ -36,9 +36,9 @@
     "@zenweb/controller": "^3.3.0",
     "@zenweb/core": "^2.4.1",
     "@zenweb/helper": "^2.8.2",
-    "@zenweb/inject": "^3.1.1",
+    "@zenweb/inject": "^3.2.0",
     "@zenweb/log": "^2.3.0",
-    "@zenweb/messagecode": "^2.3.0",
+    "@zenweb/messagecode": "^3.0.1",
     "@zenweb/meta": "^2.3.2",
     "@zenweb/router": "^3.0.0"
   },
