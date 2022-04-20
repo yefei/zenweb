@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "prepublishOnly": "rimraf dist && tsc",
+    "prepublishOnly": "rm -fr dist && tsc",
     "dev": "cd example && cross-env DEBUG=* NODE_ENV=development ts-node src"
   },
   "author": {
@@ -43,7 +43,6 @@
     "@zenweb/router": "^3.0.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "rimraf": "^3.0.2"
+    "cross-env": "^7.0.3"
   }
 }
