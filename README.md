@@ -35,34 +35,53 @@ app.start();
 src/controller/hello.ts
 ```ts
 import { Context, inject, mapping } from 'zenweb';
-import { HelloService } from '../service/hello_service';
 
-export class Index {
-  @inject
-  hello: HelloService;
-
-  @mapping({ path: '/' })
-  index(ctx: Context) {
-    ctx.success(this.hello.say());
-  }
-}
-```
-
-src/service/hello_service.ts
-```js
 export class HelloService {
-  i = 0;
+  @inject ctx: Context;
+  private i = 0;
+
   say() {
     this.i++;
     return `Hello: ${this.ctx.path}, ${this.i}`;
   }
 }
+
+export class Index {
+  @mapping({ path: '/' })
+  index(ctx: Context, hello: HelloService) {
+    ctx.success(hello.say());
+  }
+}
+```
+
+tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "ES2019",
+    "lib": [
+      "ES2019"
+    ],
+    "module": "commonjs",
+    "strict": true,
+    "strictNullChecks": false,
+    "sourceMap": true,
+    "outDir": "./app"
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}
 ```
 
 ```bash
 $ npm run dev
-boot time: 2 ms
-server on: 7001
 ```
 
 ## 内置模块
