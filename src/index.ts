@@ -14,11 +14,11 @@ import helper from '@zenweb/helper';
 import controller from '@zenweb/controller';
 import { Core } from '@zenweb/core';
 import { CreateOptions } from './types';
-export { init, inject, singleton, Context } from '@zenweb/inject';
+export { init, inject, singleton } from '@zenweb/inject';
 export { Router } from '@zenweb/router';
 export { ApiFail } from '@zenweb/api';
 export { Controller, controller, mapping } from '@zenweb/controller';
-export { Next, SetupFunction } from '@zenweb/core';
+export { Next, SetupFunction, Context, Middleware } from '@zenweb/core';
 
 export {
   Core,
