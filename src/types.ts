@@ -3,7 +3,7 @@ import { MetaOption } from '@zenweb/meta';
 import { LogOption } from '@zenweb/log';
 import { MessageCodeOption } from '@zenweb/messagecode';
 import { BodyOption } from '@zenweb/body';
-import { ApiOption } from '@zenweb/api';
+import { ResultOption } from '@zenweb/result';
 import { HelperOption } from '@zenweb/helper';
 import { ControllerOption } from '@zenweb/controller';
 
@@ -15,7 +15,7 @@ export interface CreateOptions {
   router?: false;
   messagecode?: MessageCodeOption | false;
   body?: BodyOption | false;
-  api?: ApiOption | false;
+  result?: ResultOption | false;
   helper?: HelperOption | false;
   controller?: ControllerOption | false;
 }

@@ -1,4 +1,5 @@
-import { Context, inject } from "@zenweb/inject";
+import { Context } from "@zenweb/core";
+import { inject } from "@zenweb/inject";
 
 export class HelloService {
   @inject

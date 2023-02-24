@@ -1,7 +1,7 @@
 import { create } from '../../src/index';
 
 export const app = create({
-  api: {
+  result: {
     failCode: 500,
     failStatus: 200,
     success(ctx, data) {
