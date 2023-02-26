@@ -2,12 +2,9 @@ import { Context, inject, mapping } from '../../../src/index';
 import { HelloService } from '../service/hello_service';
 
 export class Index {
-  @inject
-  ctx: Context;
-
   @mapping()
   index() {
-    this.ctx.body = {
+    return {
       hello: 'world',
       time: Date.now(),
     };
@@ -15,47 +12,40 @@ export class Index {
 
   @mapping({ path: '/name/:name' })
   name(ctx: Context) {
-    this.ctx.body = {
-      name: this.ctx.params.name,
+    return {
+      name: ctx.params.name,
     };
   }
 
   @mapping()
-  error() {
+  error(ctx: Context) {
     // 错误输出终止执行
-    this.ctx.fail('error demo');
+    ctx.fail('error demo');
     console.log('后续代码不会执行');
   }
 
   @mapping()
-  success() {
-    // 使用 success 统一包装返回格式
-    this.ctx.success('ok');
+  log(ctx: Context) {
+    ctx.log.info('Context log');
+    return 'hello';
   }
 
-  @mapping()
-  log() {
-    this.ctx.log.info('Context log');
-    this.ctx.body = 'hello';
-  }
-
-  @inject
-  helloService: HelloService;
+  @inject helloService: HelloService;
 
   @mapping()
   service() {
-    this.ctx.body = this.helloService.say();
+    return this.helloService.say();
   }
 
   @mapping({ path: '/x-process-time' })
-  async processTime() {
+  async processTime(ctx: Context) {
     await sleep(1000);
-    this.ctx.body = 'ok';
+    ctx.body = 'ok';
   }
 
   @mapping({ method: 'POST' })
-  typecast() {
-    this.ctx.body = this.ctx.helper.body({
+  typecast(ctx: Context) {
+   return ctx.helper.body({
       kw: 'trim',
       count: 'int',
       is: 'bool',
@@ -66,20 +56,20 @@ export class Index {
   }
 
   @mapping({ method: 'POST' })
-  post() {
-    this.ctx.body = this.ctx.request.body;
+  post(ctx: Context) {
+    return ctx.request.body;
   }
 
   @mapping({ method: 'POST' })
-  file() {
-    console.log('file:', this.ctx.request.files);
-    this.ctx.body = this.ctx.request.body;
+  file(ctx: Context) {
+    console.log('file:', ctx.request.files);
+    return ctx.request.body;
   }
 
   @mapping()
-  page() {
-    const page = this.ctx.helper.page({ allowOrder: ['aaa'] });
-    this.ctx.success({ page });
+  page(ctx: Context) {
+    const page = ctx.helper.page({ allowOrder: ['aaa'] });
+    return { page };
   }
 }
 

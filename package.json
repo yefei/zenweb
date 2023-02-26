@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@zenweb/body": "^2.5.0",
-    "@zenweb/controller": "^3.5.0",
+    "@zenweb/controller": "^3.6.0",
     "@zenweb/core": "^3.0.0",
     "@zenweb/helper": "^2.11.0",
     "@zenweb/inject": "^3.11.0",
