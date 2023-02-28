@@ -1,5 +1,6 @@
 import { Context, inject, mapping } from '../../../src/index';
 import { HelloService } from '../service/hello_service';
+import { SecondService } from '../service/second_service';
 
 export class Index {
   @mapping()
@@ -33,7 +34,8 @@ export class Index {
   @inject helloService: HelloService;
 
   @mapping()
-  service() {
+  service(sec: SecondService) {
+    sec.getNow();
     return this.helloService.say();
   }
 

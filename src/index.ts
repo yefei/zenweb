@@ -14,7 +14,7 @@ import helper from '@zenweb/helper';
 import controller from '@zenweb/controller';
 import { Core } from '@zenweb/core';
 import { CreateOptions } from './types';
-export { init, inject, singleton } from '@zenweb/inject';
+export { init, inject, factory } from '@zenweb/inject';
 export { Router } from '@zenweb/router';
 export { ResultFail } from '@zenweb/result';
 export { Controller, controller, mapping } from '@zenweb/controller';

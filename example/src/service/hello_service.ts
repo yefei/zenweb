@@ -1,14 +1,16 @@
-import { Context } from "@zenweb/core";
-import { inject } from "@zenweb/inject";
+import { scope } from "@zenweb/inject";
 
+@scope('singleton')
 export class HelloService {
-  @inject
-  ctx: Context;
+  // @inject sec: SecondService; // 无法在单例中注入 request 级别的对象
 
-  private i = 0;
+  private counter = 0;
+
+  constructor() {
+    console.log('HelloService init');
+  }
 
   say() {
-    this.i++;
-    return `Hello: ${this.ctx.path}, ${this.i}`;
+    return `Hello: ${this.counter++}`;
   }
 }
