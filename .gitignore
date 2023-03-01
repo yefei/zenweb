@@ -13,3 +13,4 @@ run/
 .npmrc
 example/typings/
 dist/
+thunder-tests/
