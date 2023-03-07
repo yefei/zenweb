@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "prepublishOnly": "npm run build",
-    "dev": "cd example && cross-env DEBUG=* NODE_ENV=development ts-node src"
+    "dev": "cd example && cross-env APP_NAME=testapp DEBUG=* NODE_ENV=development ts-node src"
   },
   "author": {
     "name": "YeFei",
@@ -34,10 +34,10 @@
   "dependencies": {
     "@zenweb/body": "^2.5.0",
     "@zenweb/controller": "^3.8.0",
-    "@zenweb/core": "^3.1.6",
+    "@zenweb/core": "^3.2.0",
     "@zenweb/helper": "^2.11.0",
     "@zenweb/inject": "^3.17.0",
-    "@zenweb/log": "^3.0.0",
+    "@zenweb/log": "^3.1.0",
     "@zenweb/messagecode": "^3.0.1",
     "@zenweb/meta": "^2.4.0",
     "@zenweb/result": "^2.3.5",
