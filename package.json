@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "3.6.6",
+  "version": "3.7.0",
   "description": "Modular lightweight web framework based on Koa",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
