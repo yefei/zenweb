@@ -1,8 +1,3 @@
-import '@zenweb/meta';
-import '@zenweb/log';
-import '@zenweb/messagecode';
-import '@zenweb/body';
-import '@zenweb/helper';
 import inject from '@zenweb/inject';
 import meta from '@zenweb/meta';
 import log from '@zenweb/log';
@@ -19,6 +14,8 @@ export { Router } from '@zenweb/router';
 export { ResultFail } from '@zenweb/result';
 export { Controller, controller, mapping } from '@zenweb/controller';
 export { Next, SetupFunction, Context, Middleware } from '@zenweb/core';
+export { Body } from '@zenweb/body';
+export { Helper } from '@zenweb/helper';
 
 export {
   Core,

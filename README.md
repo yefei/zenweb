@@ -2,95 +2,16 @@
 基于 Koa 的模块化轻量级 Web 开发框架。
 本框架全部由 typescript 编写
 
-## 快速开始
-
-推荐使用 typescript 创建项目
-
-package.json
-```json
-{
-  "name": "app",
-  "private": true,
-  "main": "app/index.js",
-  "scripts": {
-    "dev": "cross-env DEBUG=* NODE_ENV=development ts-node src/index.ts",
-    "build": "tsc",
-    "start": "node app"
-  }
-}
-```
-
-```bash
-$ npm i zenweb
-```
-
-src/index.ts
-```ts
-import { create } from 'zenweb';
-
-const app = create();
-app.start();
-```
-
-src/controller/hello.ts
-```ts
-import { Context, inject, mapping } from 'zenweb';
-
-export class HelloService {
-  @inject ctx: Context;
-  private i = 0;
-
-  say() {
-    this.i++;
-    return `Hello: ${this.ctx.path}, ${this.i}`;
-  }
-}
-
-export class Index {
-  @mapping({ path: '/' })
-  index(ctx: Context, hello: HelloService) {
-    ctx.success(hello.say());
-  }
-}
-```
-
-tsconfig.json
-```json
-{
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "target": "ES2019",
-    "lib": [
-      "ES2019"
-    ],
-    "module": "commonjs",
-    "strict": true,
-    "strictNullChecks": false,
-    "sourceMap": true,
-    "outDir": "./app"
-  },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "src/**/*"
-  ]
-}
-```
-
-```bash
-$ npm run dev
-```
+## 文档
+[ZenWeb 文档](https://zenweb.node.ltd)
 
 ## 内置模块
 1. [meta](https://www.npmjs.com/package/@zenweb/meta) 运行基本信息，例如：请求耗时
 2. [log](https://www.npmjs.com/package/@zenweb/log) 日志支持
 3. [router](https://www.npmjs.com/package/@zenweb/router) 路由支持
 4. [messagecode](https://www.npmjs.com/package/@zenweb/messagecode) 统一错误消息格式化
-5. [body](https://www.npmjs.com/package/@zenweb/body) 表单提交，文件上传支持
-6. [api](https://www.npmjs.com/package/@zenweb/api) 统一接口返回 ctx.success ctx.fail 方法
+5. [body](https://www.npmjs.com/package/@zenweb/body) 请求主体解析，JSON、Form
+6. [result](https://www.npmjs.com/package/@zenweb/result) 统一结果返回，成功或失败
 7. [helper](https://www.npmjs.com/package/@zenweb/helper) 输入数据验证
 8. [inject](https://www.npmjs.com/package/@zenweb/inject) 注入支持
 
@@ -111,3 +32,22 @@ $ npm run dev
 
 ## 废弃模块
 1. [service](https://www.npmjs.com/package/@zenweb/service) 废弃，已被 3.0 注入技术替代
+
+## Changelog
+
+### 3.10.0
+- update:
+  - @zenweb/core: ^3.5.0
+    - 新增: Core.moduleExists
+    - 新增: SetupHelper.assertModuleExists
+    - 修改: Core.setup 方法增加 name 参数
+    - 删除: SetupHelper.checkCoreProperty
+    - 删除: SetupHelper.checkContextProperty
+  - @zenweb/body: ^3.0.0
+    - 使用依赖注入重构，去除 xml 和 文件上传表单支持，取消的这两个作为独立模块分离。
+  - @zenweb/helper: ^3.1.0
+    - 使用依赖注入重构，不再支持 ctx.helper 调用
+  - @zenweb/router: ^3.3.0
+  - @zenweb/controller: ^3.9.0
+  - @zenweb/messagecode: ^3.2.0
+  - @zenweb/inject: ^3.18.0

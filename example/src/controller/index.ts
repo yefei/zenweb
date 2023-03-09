@@ -1,3 +1,5 @@
+import { Helper } from '@zenweb/helper';
+import { Body } from '@zenweb/body';
 import { Context, inject, mapping } from '../../../src/index';
 import { HelloService } from '../service/hello_service';
 import { SecondService } from '../service/second_service';
@@ -46,8 +48,8 @@ export class Index {
   }
 
   @mapping({ method: 'POST' })
-  typecast(ctx: Context) {
-   return ctx.helper.body({
+  typecast(helper: Helper) {
+   return helper.body({
       kw: 'trim',
       count: 'int',
       is: 'bool',
@@ -58,19 +60,13 @@ export class Index {
   }
 
   @mapping({ method: 'POST' })
-  post(ctx: Context) {
-    return ctx.request.body;
-  }
-
-  @mapping({ method: 'POST' })
-  file(ctx: Context) {
-    console.log('file:', ctx.request.files);
-    return ctx.request.body;
+  post(body: Body) {
+    return body.data;
   }
 
   @mapping()
-  page(ctx: Context) {
-    const page = ctx.helper.page({ allowOrder: ['aaa'] });
+  page(helper: Helper) {
+    const page = helper.page({ allowOrder: ['aaa'] });
     return { page };
   }
 }

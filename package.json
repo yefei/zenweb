@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "3.9.0",
+  "version": "3.10.0",
   "description": "Modular lightweight web framework based on Koa",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -32,16 +32,16 @@
     "url": "https://github.com/yefei/zenweb/issues"
   },
   "dependencies": {
-    "@zenweb/body": "^2.5.0",
-    "@zenweb/controller": "^3.8.0",
-    "@zenweb/core": "^3.3.0",
-    "@zenweb/helper": "^3.0.0",
-    "@zenweb/inject": "^3.17.0",
+    "@zenweb/body": "^3.0.0",
+    "@zenweb/controller": "^3.9.0",
+    "@zenweb/core": "^3.5.0",
+    "@zenweb/helper": "^3.1.0",
+    "@zenweb/inject": "^3.18.0",
     "@zenweb/log": "^3.2.0",
-    "@zenweb/messagecode": "^3.1.0",
+    "@zenweb/messagecode": "^3.2.0",
     "@zenweb/meta": "^2.4.0",
     "@zenweb/result": "^3.0.0",
-    "@zenweb/router": "^3.1.1"
+    "@zenweb/router": "^3.3.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
