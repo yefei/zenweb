@@ -14,8 +14,8 @@ export { Router } from '@zenweb/router';
 export { ResultFail } from '@zenweb/result';
 export { Controller, controller, mapping } from '@zenweb/controller';
 export { Next, SetupFunction, Context, Middleware } from '@zenweb/core';
-export { Body } from '@zenweb/body';
-export { Helper } from '@zenweb/helper';
+export { Body, BodyHelper } from '@zenweb/body';
+export { QueryHelper, TypeCastHelper } from '@zenweb/helper';
 
 export {
   Core,

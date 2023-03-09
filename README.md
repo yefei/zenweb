@@ -35,6 +35,13 @@
 
 ## Changelog
 
+### 3.11.0
+- @zenweb/helper: ^3.3.0
+  - 去除 Helper
+  - 新增 QueryHelper, ParamHelper, TypeCastHelper
+- @zenweb/body: ^3.1.0
+  - 新增 BodyHelper 数据类型转换&校验
+
 ### 3.10.0
 - update:
   - @zenweb/core: ^3.5.0

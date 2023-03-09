@@ -1,5 +1,5 @@
-import { Helper } from '@zenweb/helper';
-import { Body } from '@zenweb/body';
+import { BodyHelper, Body } from '@zenweb/body';
+import { QueryHelper } from '@zenweb/helper';
 import { Context, inject, mapping } from '../../../src/index';
 import { HelloService } from '../service/hello_service';
 import { SecondService } from '../service/second_service';
@@ -48,8 +48,8 @@ export class Index {
   }
 
   @mapping({ method: 'POST' })
-  typecast(helper: Helper) {
-   return helper.body({
+  typecast(body: BodyHelper) {
+   return body.get({
       kw: 'trim',
       count: 'int',
       is: 'bool',
@@ -65,8 +65,8 @@ export class Index {
   }
 
   @mapping()
-  page(helper: Helper) {
-    const page = helper.page({ allowOrder: ['aaa'] });
+  page(query: QueryHelper) {
+    const page = query.page({ allowOrder: ['aaa'] });
     return { page };
   }
 }
