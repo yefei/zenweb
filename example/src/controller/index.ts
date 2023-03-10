@@ -33,12 +33,10 @@ export class Index {
     return 'hello';
   }
 
-  @inject helloService: HelloService;
-
   @mapping()
-  service(sec: SecondService) {
+  service(sec: SecondService, helloService: HelloService) {
     sec.getNow();
-    return this.helloService.say();
+    return helloService.say();
   }
 
   @mapping({ path: '/x-process-time' })

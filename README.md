@@ -38,6 +38,18 @@
 
 ## Changelog
 
+### 3.11.1
+> null 大检查! 所有项目强制开启 TS strict 模式，不再忽略 null 检查
+- 更新：
+  - @zenweb/body: ^3.1.1
+  - @zenweb/controller: ^3.9.1
+  - @zenweb/core: ^3.5.1
+  - @zenweb/helper: ^3.3.1
+  - @zenweb/log: ^3.2.1
+  - @zenweb/messagecode: ^3.2.1
+  - @zenweb/meta: ^2.4.1
+  - @zenweb/result: ^3.0.1
+
 ### 3.11.0
 - @zenweb/helper: ^3.3.0
   - 去除 Helper
