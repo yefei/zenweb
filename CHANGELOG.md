@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.12.1
+- 导出: ParamHelper
+
 ## 3.12.0
 - 更新: @zenweb/body: ^3.2.0  ObjectBody
 

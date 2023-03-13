@@ -15,7 +15,7 @@ export { ResultFail } from '@zenweb/result';
 export { Controller, controller, mapping } from '@zenweb/controller';
 export { Next, SetupFunction, Context, Middleware } from '@zenweb/core';
 export { Body, ObjectBody, BodyHelper } from '@zenweb/body';
-export { QueryHelper, TypeCastHelper } from '@zenweb/helper';
+export { QueryHelper, TypeCastHelper, ParamHelper } from '@zenweb/helper';
 
 export {
   Core,
