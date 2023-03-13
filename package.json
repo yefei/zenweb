@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "3.11.1",
+  "version": "3.12.0",
   "description": "Modular lightweight web framework based on Koa",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -32,7 +32,7 @@
     "url": "https://github.com/yefei/zenweb/issues"
   },
   "dependencies": {
-    "@zenweb/body": "^3.1.1",
+    "@zenweb/body": "^3.2.0",
     "@zenweb/controller": "^3.9.1",
     "@zenweb/core": "^3.5.1",
     "@zenweb/helper": "^3.3.1",

@@ -1,4 +1,4 @@
-import { BodyHelper, Body } from '@zenweb/body';
+import { BodyHelper, ObjectBody } from '@zenweb/body';
 import { QueryHelper } from '@zenweb/helper';
 import { Context, inject, mapping } from '../../../src/index';
 import { HelloService } from '../service/hello_service';
@@ -58,8 +58,8 @@ export class Index {
   }
 
   @mapping({ method: 'POST' })
-  post(body: Body) {
-    return body.data;
+  post(body: ObjectBody) {
+    return body;
   }
 
   @mapping()
