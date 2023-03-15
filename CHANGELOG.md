@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.12.2] - 2023-3-15
+- 更新：@zenweb/body: ^3.2.2  xml 类型
+
 ## 3.12.1
 - 导出: ParamHelper
 
