@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.13.0] - 2023-3-17
+- 更新: @zenweb/body: ^3.5.0
+  - 重构数据流读取, 新增 RawBody 和 TextBody，可扩展的解析器
+
 ## [3.12.2] - 2023-3-15
 - 更新：@zenweb/body: ^3.2.2  xml 类型
 
