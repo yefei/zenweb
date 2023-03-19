@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.14.0] - 2023-3-19
+- 更新: @zenweb/body: ^3.6.0
+
 ## [3.13.1] - 2023-3-18
 - 导出: RawBody, TextBody
 
