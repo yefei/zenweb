@@ -3,7 +3,7 @@
 本框架全部由 typescript 编写
 
 ## 文档
-[ZenWeb 文档](https://zenweb.node.ltd)
+[ZenWeb 文档](https://zenweb.vercel.app)
 
 ## 内置模块
 - [meta](https://www.npmjs.com/package/@zenweb/meta) 运行基本信息，例如：请求耗时
@@ -31,7 +31,3 @@
 - [grid](https://www.npmjs.com/package/@zenweb/grid) 统一表格（多用于后台）
 - [upload](https://www.npmjs.com/package/@zenweb/upload) 文件上传支持
 - [xmlBody](https://www.npmjs.com/package/@zenweb/xml-body) XML Body 解析
-
-
-## 废弃模块
-- [service](https://www.npmjs.com/package/@zenweb/service) 废弃，已被 3.0 注入技术替代
