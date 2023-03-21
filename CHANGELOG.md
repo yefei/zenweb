@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.15.0] - 2023-3-21
+- 更新: @zenweb/messagecode: ^3.4.0
+  - number 类型支持，如果为 number 则直接获取不进行递归查找
+  - 可以格式化不在配置项中的字符串
+  - 增加 has 方法用于判断配置项是否存在
+- 更新: @zenweb/result: ^3.1.0
+  - 使用 messagecode 统一处理错误代码消息
+- 更新: @zenweb/helper: ^3.4.0
+  - 使用新的 result.fail 简化错误输出代码
+  - 去除配置项中的 requiredErrorCode 和 validateErrorCode
+  - 增加全局配置 page 选项
+- 更新: @zenweb/controller: ^3.10.0
+  - discoverPaths 支持使用 "./" 开头的相对路径
+  - 增加 debug 信息
+
 ## [3.14.0] - 2023-3-19
 - 更新: @zenweb/body: ^3.6.0
 

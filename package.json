@@ -1,6 +1,6 @@
 {
   "name": "zenweb",
-  "version": "3.14.0",
+  "version": "3.15.0",
   "description": "Modular lightweight web framework based on Koa",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -33,14 +33,14 @@
   },
   "dependencies": {
     "@zenweb/body": "^3.6.0",
-    "@zenweb/controller": "^3.9.1",
+    "@zenweb/controller": "^3.10.0",
     "@zenweb/core": "^3.5.1",
-    "@zenweb/helper": "^3.3.1",
+    "@zenweb/helper": "^3.4.0",
     "@zenweb/inject": "^3.18.0",
     "@zenweb/log": "^3.2.1",
-    "@zenweb/messagecode": "^3.2.1",
+    "@zenweb/messagecode": "^3.4.0",
     "@zenweb/meta": "^2.4.1",
-    "@zenweb/result": "^3.0.1",
+    "@zenweb/result": "^3.1.0",
     "@zenweb/router": "^3.3.0"
   },
   "devDependencies": {
