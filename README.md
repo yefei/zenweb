@@ -5,6 +5,45 @@
 ## 文档
 [ZenWeb 文档](https://zenweb.vercel.app)
 
+## 演示
+
+index.ts
+```ts
+import { create } from 'zenweb';
+create().start();
+```
+
+service/hello.ts
+```ts
+import { inject } from 'zenweb';
+
+export class HelloService {
+  @inject ctx: Context;
+
+  getIp() {
+    return this.ctx.ip;
+  }
+}
+```
+
+controller/hello.ts
+```ts
+import { mapping } from 'zenweb';
+import { HelloService } from '../service/hello';
+
+export class HelloController {
+  @mapping()
+  index(service: HelloService) {
+    const ip = service.getIp();
+    return `Hello ZenWeb! ${ip}`;
+  }
+}
+```
+
+```bash
+ts-node index
+```
+
 ## 内置模块
 - [meta](https://www.npmjs.com/package/@zenweb/meta) 运行基本信息，例如：请求耗时
 - [log](https://www.npmjs.com/package/@zenweb/log) 日志支持
